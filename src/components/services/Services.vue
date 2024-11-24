@@ -3,7 +3,7 @@
 
         <h1 class="text-3xl">Servizi</h1>
 
-        <Service v-for="groupService in services" :key="groupService.title" :groupService="groupService"></Service>
+        <GroupService v-for="groupService in services" :key="groupService.title" :groupService="groupService"></GroupService>
 
     </div>
 </template>
@@ -11,10 +11,10 @@
 <script>
 import { storeNailServices } from '@/stores/services';
 import { computed, onMounted } from 'vue';
-import Service from './GroupService.vue';
+import GroupService from './GroupService.vue';
 export default {
     components: {
-        Service
+        GroupService
     },
     setup(){
 

@@ -8,26 +8,27 @@
         <h1 class="text-white text-2xl font-bold">I servizi che hai scelto</h1>
 
         <div class="flex my-[30px] justify-center flex-wrap gap-3">
-            <singleProductCart v-for="service in storeServices.getCart" :key="service.id" :servive="service"></singleProductCart>
+            <SingleProductCart v-for="service in storeServices.getCart" :key="service.id" :service="service"></SingleProductCart>
         </div>
 
         <div>
-            <button class="text-[1.1rem] text-white bg-blue-600 rounded-md w-full py-[10px]">Prenota</button>
+            <button class="text-[1.1rem] text-white bg-blue-600 rounded-md w-full py-[10px]" @click="onReservation">Prenota</button>
         </div>
     </div>
 </template>
 
 <script>
 import { ref } from 'vue';
-import singleProductCart from './singleProductCart.vue';
+import SingleProductCart from './SingleProductCart.vue';
 import { storeCart } from '@/stores/CounterCart';
+import { useRouter } from 'vue-router';
 
 export default {
     emits: ['onVisibleCart'],
     components: {
-        singleProductCart
+        SingleProductCart
     },
-    setup(_,emits){
+    setup(_,emits,){
 
         const isVisible = ref(true);
         
@@ -37,10 +38,16 @@ export default {
         }
         
         const storeServices = storeCart();
+        const router = useRouter();
+
+        const onReservation = () => {
+            router.push('/reservation')
+        }
 
         return {
             onVisibleCart,
-            storeServices
+            storeServices,
+            onReservation
         }
     }
 }

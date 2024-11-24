@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { loaderStore } from "./loader";
 
 
 export const storeNailServices = defineStore('nailServices', {
@@ -13,9 +14,12 @@ export const storeNailServices = defineStore('nailServices', {
 
     actions: {
         async setServices(){
+            const storeLoader = loaderStore();
+            storeLoader.setLoader(true);
             const res = await fetch(this.apiUrl);
             const data = await res.json();
             this.services = data;
+            storeLoader.setLoader(false);
         }
     },
 

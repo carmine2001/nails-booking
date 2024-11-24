@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-[30px] w-[80%] m-auto text-[1.1rem]">
+    <div class="w-[80%] m-auto text-[1.3rem]">
         <h1 class="text-3xl">Orari di apertura</h1>
 
         <div class=" border-gray-300 border-[1px] rounded mt-[20px] py-[20px]">
@@ -39,6 +39,6 @@
     .hour{
         display: flex;
         justify-content: space-between;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
 </style>

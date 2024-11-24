@@ -1,4 +1,5 @@
 import Home from '@/pages/Home.vue'
+import Reservation from '@/pages/Reservation.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -7,6 +8,10 @@ const router = createRouter({
     {
       path: "/",
       component: Home
+    },
+    {
+      path: '/reservation',
+      component: Reservation
     }
   ],
 })
